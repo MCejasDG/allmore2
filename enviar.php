@@ -1,16 +1,24 @@
 <?php
 
-// VARIABLES
+// VARIABLES //
 
-$destino = "mcejasdg@gmail.com";
 $nombre = $_POST['nombre'];
-$correo = $_POST['correo'];
+$email = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $mensaje = $_POST['mensaje'];
 
-$contenido = "Nombre: " . $nombre . "\nCorreo: " . $correo . "\nTeléfono: " . $telefono . "\nMensaje: " . $mensaje;
+// DATOS //
 
-mail($destino, "Contacto - All&More.", $contenido);
-header("Location:index.html");
+$destino = 'mcejasdg@gmail.com';
+$asunto = 'Contacto - All&More.';
+$formulario = "De: $nombre \n";
+$formulario .= "Correo: $correo \n";
+$formulario .= "Teléfono: $telefono \n";
+$formulario .= "Mensaje: $mensaje";
+
+// ENVIAR //
+
+mail($destino, $asunto, $formulario);
+header('Location:index')
 
 ?>
